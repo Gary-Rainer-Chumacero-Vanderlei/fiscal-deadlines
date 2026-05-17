@@ -1,0 +1,28 @@
+# =============================================================================
+# requirements-dev.txt — Dependências de Desenvolvimento
+# Ferramentas usadas apenas durante o desenvolvimento, não em produção.
+#
+# Como instalar:
+#   pip install -r requirements-dev.txt
+#
+# Como instalar tudo (produção + desenvolvimento):
+#   pip install -r requirements.txt -r requirements-dev.txt
+# =============================================================================
+
+# --- Testes Automatizados ---
+pytest==8.3.5
+
+# --- Cobertura de Testes ---
+# Mostra quais linhas do código foram executadas pelos testes.
+# Uso: pytest --cov=src --cov-report=term-missing
+pytest-cov==6.0.0
+
+# --- Verificação de Type Hints ---
+# Verifica anotações de tipo sem executar o código.
+# Uso: mypy src/
+mypy==1.11.2
+
+# --- Stubs de tipo para pandas ---
+# Necessário para o mypy verificar type hints em DataFrames.
+# Sem este pacote, mypy ignora a maioria das operações com pandas.
+pandas-stubs==2.2.3.240807

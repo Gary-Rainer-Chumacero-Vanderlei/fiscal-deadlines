@@ -1,0 +1,27 @@
+# =============================================================================
+# requirements.txt — Fiscal Deadlines
+# Dependências do projeto com versões fixadas para garantir reprodutibilidade.
+#
+# Como instalar:
+#   pip install -r requirements.txt
+#
+# Como instalar incluindo dependências de desenvolvimento:
+#   pip install -r requirements.txt -r requirements-dev.txt
+# =============================================================================
+
+# --- Interface do Dashboard ---
+streamlit==1.41.1
+
+# --- Visualizações Interativas ---
+plotly==5.24.1
+
+# --- Manipulação de Dados ---
+pandas==2.2.3
+python-dateutil==2.9.0
+
+# --- Banco de Dados ---
+sqlalchemy==2.0.36
+alembic==1.14.0
+
+# --- Validação de Dados ---
+pydantic==2.10.3

@@ -1,0 +1,27 @@
+# --- Banco de dados ---
+data/
+*.db
+
+# --- Ambiente virtual ---
+.venv/
+
+# --- Cache Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+
+# --- Testes e cobertura ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Sistema operacional ---
+.DS_Store
+Thumbs.db
+
+# --- IDEs ---
+.vscode/
+.idea/
