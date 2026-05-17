@@ -63,8 +63,6 @@ fiscal-deadlines/
 │   ├── test_kpis.py              ← contagens, percentuais, rankings, casos de borda
 │   └── test_loader.py            ← CRUD, schema, exceções, isolamento por teste
 │
-├── notebooks/                    ← EDA e exploração (não vai para produção)
-├── alembic/                      ← migrações de schema
 ├── data/                         ← banco SQLite gerado em execução (ignorado pelo Git)
 ├── App.py                        ← ponto de entrada: streamlit run App.py
 ├── gerar_dados.py                ← dados sintéticos reprodutíveis (seed=42)

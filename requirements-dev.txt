@@ -25,4 +25,4 @@ mypy==1.11.2
 # --- Stubs de tipo para pandas ---
 # Necessário para o mypy verificar type hints em DataFrames.
 # Sem este pacote, mypy ignora a maioria das operações com pandas.
-pandas-stubs==2.2.3.240807
+pandas-stubs==2.2.2.240807
