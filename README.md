@@ -63,6 +63,8 @@ fiscal-deadlines/
 │   ├── test_kpis.py              ← contagens, percentuais, rankings, casos de borda
 │   └── test_loader.py            ← CRUD, schema, exceções, isolamento por teste
 │
+├── notebooks/                    ← EDA e exploração (não vai para produção)
+├── alembic/                      ← migrações de schema
 ├── data/                         ← banco SQLite gerado em execução (ignorado pelo Git)
 ├── App.py                        ← ponto de entrada: streamlit run App.py
 ├── gerar_dados.py                ← dados sintéticos reprodutíveis (seed=42)
@@ -108,7 +110,7 @@ Cria 12 clientes fictícios e 360 prazos para o ano de 2026 no banco SQLite:
 Para um ano específico:
 
 ```bash
-python gerar_dados.py --ano 2027
+python gerar_dados.py --ano 2024
 ```
 
 > O banco é ignorado pelo Git (`.gitignore`). Qualquer pessoa que clone o repositório
@@ -127,11 +129,14 @@ streamlit run App.py
 pip install -r requirements-dev.txt
 
 # Todos os testes
-pytest tests/ -v
+python -m pytest tests/ -v
 
 # Com cobertura
-pytest tests/ -v --cov=src --cov-report=term-missing
+python -m pytest tests/ -v --cov=src --cov-report=term-missing
 ```
+
+> No Windows, use sempre `python -m pytest` em vez de `pytest` diretamente —
+> garante que o módulo do ambiente virtual ativo é chamado, independente do PATH.
 
 **Resultado esperado:** `108 passed in < 5s`
 
@@ -189,10 +194,10 @@ Os dados são gerados por `gerar_dados.py` com as seguintes características:
 pip install -r requirements-dev.txt
 
 # Executa todos os 108 testes
-pytest tests/ -v
+python -m pytest tests/ -v
 
 # Com relatório de cobertura de linhas
-pytest tests/ --cov=src --cov-report=term-missing
+python -m pytest tests/ --cov=src --cov-report=term-missing
 ```
 
 **Resultado esperado:** `108 passed in < 5s`
@@ -260,17 +265,17 @@ Todas as funções de `prazos.py` e `kpis.py` recebem dados como argumento e ret
 | Biblioteca | Versão | Uso |
 |---|---|---|
 | Python | 3.11+ | Linguagem principal |
-| Streamlit | 1.41.1 | Painel interativo |
+| Streamlit | 1.45.1 | Painel interativo |
 | Plotly | 5.24.1 | Gráficos interativos |
 | Pandas | 2.2.3 | Manipulação de dados |
-| SQLAlchemy | 2.0.36 | ORM e abstração do banco |
-| Alembic | 1.14.0 | Migrações de schema |
-| Pydantic | 2.10.3 | Validação e tipagem dos modelos |
-| python-dateutil | 2.9.0 | Cálculo de datas e vencimentos |
+| SQLAlchemy | 2.0.41 | ORM e abstração do banco |
+| Alembic | 1.15.2 | Migrações de schema |
+| Pydantic | 2.11.4 | Validação e tipagem dos modelos |
+| python-dateutil | 2.9.0.post0 | Cálculo de datas e vencimentos |
 | pytest | 8.3.5 | Testes automatizados |
 | pytest-cov | 6.0.0 | Cobertura de testes |
 | mypy | 1.11.2 | Verificação de tipos |
-| pandas-stubs | 2.2.3.240807 | Stubs de tipo para pandas |
+| pandas-stubs | 2.2.2.240807 | Stubs de tipo para pandas |
 
 ---
 
