@@ -10,18 +10,18 @@
 # =============================================================================
 
 # --- Interface do Dashboard ---
-streamlit==1.45.1
+streamlit
 
 # --- Visualizações Interativas ---
-plotly==5.24.1
+plotly
 
 # --- Manipulação de Dados ---
-pandas==2.2.3
-python-dateutil==2.9.0.post0
+pandas
+python-dateutil
 
 # --- Banco de Dados ---
-sqlalchemy==2.0.41
-alembic==1.15.2
+sqlalchemy
+alembic
 
 # --- Validação de Dados ---
-pydantic==2.11.4
+pydantic
