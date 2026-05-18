@@ -18,8 +18,16 @@ from pathlib import Path
 # =============================================================================
 
 ROOT_DIR = Path(__file__).parent.parent
-DB_PATH  = ROOT_DIR / "data" / "fiscal.db"
-DATA_DIR = ROOT_DIR / "data"
+
+# No Streamlit Cloud o único diretório gravável é /tmp.
+# Em ambiente local usa data/ na raiz do projeto.
+_STREAMLIT_CLOUD = Path("/mount/src").exists()
+if _STREAMLIT_CLOUD:
+    DATA_DIR = Path("/tmp/fiscal-deadlines")
+else:
+    DATA_DIR = ROOT_DIR / "data"
+
+DB_PATH = DATA_DIR / "fiscal.db"
 
 # =============================================================================
 # BANCO DE DADOS

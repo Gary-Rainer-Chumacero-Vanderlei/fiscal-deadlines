@@ -184,8 +184,12 @@ st.markdown("""
 
 @st.cache_resource
 def inicializar_banco():
-    """Inicializa o banco uma única vez por sessão."""
+    """Inicializa o banco e gera dados sintéticos se vazio (Streamlit Cloud)."""
     init_db()
+    from src.data.loader import listar_clientes as _listar
+    if not _listar(apenas_ativos=False):
+        from gerar_dados import gerar
+        gerar()
 
 inicializar_banco()
 
